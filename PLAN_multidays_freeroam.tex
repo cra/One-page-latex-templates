@@ -1,0 +1,103 @@
+\documentclass[pdftex,12pt,a4paper]{extarticle}
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc} % Same as coding: utf-8
+\usepackage[russian]{babel}  % Just in case I want to drop something in russian
+\usepackage{pscyr}           % Fancy cyrillic fonts
+\usepackage{helvet}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{amssymb}
+
+\usepackage{xspace}          % Sentence-end aware space for custom commands.
+
+% Tweak margins, do not do that weird 'indent each paragraph' thing
+\usepackage[a4paper,top=2cm,bottom=1cm,left=1cm,right=1cm]{geometry}
+\usepackage{ragged2e}
+
+\usepackage{eurosym}
+
+\usepackage{ulem} % \sout{text} -- Strikeout
+
+\usepackage{hyperref}
+\hypersetup{pdfinfo={
+  Author={Igor Mosyagin},
+  Title={Free-roam plan for the 11th of june 2016},
+}}
+
+\linespread{1.1} % some linespread
+
+\usepackage[ampersand]{easylist} % Nested lists and checklists done easily
+
+% define a space eater command
+\newcommand{\omnomnom}{\vspace{-0.5\baselineskip}}
+
+% add a squeezed enum environment
+\newenvironment{packed_enum}{
+\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{enumerate}}
+
+% this is to simplify MITs in my footer
+\newenvironment{mitdesc}[1][cool]{
+  {\sc #1}~\hrulefill
+\begin{easylist}[itemize]
+  \ListProperties(Style1*=,Style2*=)
+}{\end{easylist}}
+
+\usepackage{multicol}
+
+% For the friday's reflection
+\usepackage{todonotes}
+\newcommand{\info}[1]{\todo[inline, color=white]{#1}}
+
+\newcommand{\markedsquare}{\makebox[0pt][l]{$\square$}\raisebox{.15ex}{\hspace{0.1em}$\checkmark$}}
+\newcommand{\foursquares}{$\square\square\square\square$}
+\newcommand{\eightsquares}{\foursquares|\foursquares}
+\newcommand{\fourmarkedsquares}{\markedsquare\markedsquare\markedsquare\markedsquare}
+\newcommand{\eightmarkedsquares}{\fourmarkedsquares|\fourmarkedsquares}
+
+\begin{document}
+\thispagestyle{empty}
+% Easiest way to make the {titlepage} customizable is to not use it.
+\begin{center}
+  Be awesome\\
+  {\bf 11/12-е june 2016}
+\end{center}
+
+%%%%%%%%%%%%%% CHECKLIST %%%%%%%%%%%%%%%%%%%
+
+
+  
+%%%%%%%%%%%%%% FOOTER %%%%%%%%%%%%%%%%%%%
+\vfill
+
+\begin{center}
+ At least 20 {\bf hobby} Tocks this week.\\
+\eightsquares\eightsquares\eightsquares
+ \end{center}
+\hrulefill
+\begin{center}{\sc MITs this week:}\end{center}
+\begin{multicols}{3}
+  \begin{mitdesc}[Communicate]
+    & blablabla
+    & blablabla
+    & blablabla
+  \end{mitdesc}
+  \columnbreak
+  
+  \begin{mitdesc}[Writing]
+    & Work on draft 4T \foursquares
+    & Research alternative history
+    & 
+  \end{mitdesc}
+  \columnbreak
+
+  \begin{mitdesc}[Arduino]
+    & Solder wireshield
+    & Drop IDE. Use scons
+    & Photoproof to XYZ
+  \end{mitdesc}
+\end{multicols}
+
+\end{document}
