@@ -1,0 +1,155 @@
+\documentclass[pdftex,12pt,a4paper]{extarticle}
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc} % Same as coding: utf-8
+\usepackage[russian]{babel}  % Just in case I want to drop something in russian
+\usepackage{pscyr}           % Fancy cyrillic fonts
+\usepackage{helvet}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{amssymb}
+
+\usepackage{xspace}          % Sentence-end aware space for custom commands.
+
+% Tweak margins, do not do that weird 'indent each paragraph' thing
+\usepackage[a4paper,top=2cm,bottom=1cm,left=1cm,right=1cm]{geometry}
+\usepackage{ragged2e}
+
+\usepackage{eurosym}
+
+\usepackage{ulem} % \sout{text} -- Strikeout
+
+\usepackage{hyperref}
+\hypersetup{pdfinfo={
+  Author={Igor Mosyagin},
+  Title={This is my title and it's amazing},
+  Subject={Give my subject a lick: it tastes like raisins},
+}}
+
+\linespread{1.1} % some linespread
+
+\usepackage[ampersand]{easylist} % Nested lists and checklists done easily
+
+% define a space eater command
+\newcommand{\omnomnom}{\vspace{-0.5\baselineskip}}
+
+% add a squezzed enum environment
+\newenvironment{packed_enum}{
+\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{enumerate}}
+
+% this is to simplify MITs in my footer
+\newenvironment{mitdesc}[1][cool]{
+  {\sc #1}
+\begin{easylist}[itemize]
+  \ListProperties(Style1*=,Style2*=)
+}{\end{easylist}}
+
+\usepackage{multicol}
+
+% For the friday's reflection
+\usepackage{todonotes}
+\newcommand{\info}[1]{\todo[inline, color=white]{#1}}
+
+\newcommand{\markedsquare}{\makebox[0pt][l]{$\square$}\raisebox{.15ex}{\hspace{0.1em}$\checkmark$}}
+\newcommand{\foursquares}{$\square\square\square\square$}
+\newcommand{\eightsquares}{\foursquares|\foursquares\xspace}
+\newcommand{\fourmarkedsquares}{\markedsquare\markedsquare\markedsquare\markedsquare}
+\newcommand{\eightmarkedsquares}{\fourmarkedsquares|\fourmarkedsquares\xspace}
+
+\begin{document}
+\thispagestyle{empty}
+% Easiest way to make the {titlepage} customizable is to not use it.
+\begin{center}
+  Fantastic\\
+  {\bf 19 june 2016. Sunday}
+\end{center}
+
+%%%%%%%%%%%%%% CHECKLIST %%%%%%%%%%%%%%%%%%%
+        
+\begin{multicols}{2}
+\begin{easylist}[checklist]
+  & print *this and check times
+  & print train ticket
+  & Get to the train 15:20 PlaceA $\rightarrow$ 17:34 PlaceB
+    
+    && bus from my place \\
+    14:19 {\bf 14:39} 14:59
+    && grab a coffee to go
+    && train 2822, vagon 6, place 66 
+  & PlaceB flight VZ6699 to PlaceC \\
+    Reservation ABCDEX
+    
+    && check-in
+    && drop bagagge
+    && security check
+    && boarding 19:25
+    && departure {\bf 20:05}
+  & PlaceC
+    && arrival {\bf 23:10} local time
+    && fetch my bags
+    && check roaming
+    && Airport train service 23:30 {\bf 00:00} 00:30
+    && take a taxi to my hotel
+
+\end{easylist}
+\columnbreak
+\begin{easylist}[checklist]
+  & turn off all the lights
+  & My bag
+    && passport
+    && loyalty card
+    && my clothing
+      &&& shorts
+      &&& 2tall t-shirts
+      &&& 2tall pants
+      &&& couple of shirts
+      &&& training sneakers
+    && laptop and a charger
+    && lesser bags
+        &&& over-the-shoulder laptop bag
+        &&& slim laptop bag
+        &&& training bag
+        &&& my yellow backpack
+        &&& rain protection
+    && cellphone
+    && pebble
+    && short USB-microusb cable
+    && long USB-microusb cable
+    && books
+      &&& fluent python
+      &&& statistics done wrong
+    && workbook
+    && vitamins
+    && water bottle
+\end{easylist}
+\end{multicols}
+
+%%%%%%%%%%%%%% FOOTER %%%%%%%%%%%%%%%%%%%
+\vfill
+\hrulefill
+\begin{center}{\sc MITs this week:}\end{center}
+\begin{multicols}{3}
+  \begin{mitdesc}[Communicate]
+    & blablabla
+    & blablabla
+    & blablabla
+  \end{mitdesc}
+  \columnbreak
+  
+  \begin{mitdesc}[Writing]
+    & Work on draft 4T \foursquares
+    & Research alternative history
+    & 
+  \end{mitdesc}
+  \columnbreak
+
+  \begin{mitdesc}[Arduino]
+    & Solder wireshield
+    & Drop IDE. Use scons
+    & Photoproof to XYZ
+  \end{mitdesc}
+\end{multicols}
+
+\end{document}
